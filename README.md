@@ -11,7 +11,7 @@ The setup to run `cows.js` is fairly simple. You will have to create a new insta
 <div id="cow"></div>
 
 <script type="module">
-//import the Snow module
+//import the Cow module
 import * as Cow from '/node_modules/cows.js/cow.js'
 
 // Snow script included on the page, already.
