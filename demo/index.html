@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cow.js</title>
 
-    <script src='/cow.js' defer></script>
-
     <!-- CSS -->
     <link href='./style.css' rel='stylesheet'>
 
@@ -20,14 +18,17 @@
     </div>
     <div id="cow"></div>
 
-    <script>
+    <script type="module">
+        //import the Snow module
+        import * as Cow from '/demo/node_modules/cows.js/cow.js'
+
+        // Snow script included on the page, already.
         window.onload = function () {
-            //create cow
-            var cow = new Cow({
-                id: "cow"
+            var cow = new Cow.default({
+                id: 'cow'
             });
 
-            //cow go
+            //will call the cow to walk
             cow.move();
         }
     </script>
