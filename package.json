@@ -1,6 +1,6 @@
 {
   "name": "cows.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A JS library to add random cows to the web!",
   "main": "cow.js",
   "scripts": {
