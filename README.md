@@ -11,16 +11,35 @@ The setup to run `cows.js` is fairly simple. You will have to create a new insta
 <div id="cow"></div>
 
 <script type="module">
-//import the Snow module
+//import the Cow module
 import * as Cow from '/node_modules/cows.js/cow.js'
 
-// Snow script included on the page, already.
+// Cow script included on the page, already.
 window.onload = function () {
     var cow = new Cow.default({
         id: 'cow'
     });
 
     //will call the cow to walk
+    cow.move();
+}
+</script>
+```
+
+#### Audio
+You can control whether you want the cow to "moo" or not. The audio will play as default, but you can set the sound setting to false to stop the audio as seen in the example below..
+
+```html
+<div id="cow"></div>
+
+<script type="module">
+
+window.onload = function () {
+    var cow = new Cow.default({
+        id: 'cow',
+        sound: false
+    });
+
     cow.move();
 }
 </script>
