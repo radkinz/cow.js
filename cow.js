@@ -12,7 +12,7 @@ function image(width, id) {
     img.style.left = ((window.innerWidth - img.width)) + "px";
 
     //100 as a buffer
-    img.style.top = random(0, (parent.clientHeight-100)) + "px";
+    img.style.top = random(0, (parent.clientHeight - 100)) + "px";
 
     return img
 }
@@ -50,9 +50,18 @@ var Cow = function (options) {
     //get intial x pos
     this.xpos = this.img.x;
 
+    //sound setting on unless user turn off
+    this.soundsetting = true;
+    //check if user specified sound off
+    if (options.sound == false) {
+        this.soundsetting = false;
+    }
+
     //start moo sound of cow
-    this.moo = new sound("/assets/moo.mp3")
-    this.moo.play();
+    if (this.soundsetting) {
+        this.moo = new sound("/assets/moo.mp3")
+        this.moo.play();
+    }
 
     //move function
     this.move = function () {
@@ -63,9 +72,9 @@ var Cow = function (options) {
         //if go offscreen move back up front with some buffer
         if (this.xpos < -this.width) {
             this.xpos = window.innerWidth;
-            
+
             //randomize y pos
-            this.img.style.top = random(0, (document.getElementById(options.id).clientHeight-100)) + "px"; 
+            this.img.style.top = random(0, (document.getElementById(options.id).clientHeight - 100)) + "px";
         }
     }
 }
