@@ -1,8 +1,9 @@
 //create cow image
-function image(width, id) {
+function image(width, id, src) {
     //dynamically add an image and set its attribute
     var img = document.createElement("img");
-    img.src = "/assets/cow.gif";
+
+    img.src = src;
     img.width = width;
     var parent = document.getElementById(id);
     parent.appendChild(img);
@@ -45,8 +46,12 @@ var Cow = function (options) {
 
     //set width
     this.width = 100;
-    //create image
-    this.img = image(this.width, options.id);
+    //create image and check src
+    if (options.imagesrc) {
+        this.img = image(this.width, options.id, options.imagesrc);
+    } else {
+        this.img = image(this.width, options.id, "/assets/cow.gif");
+    }
     //get intial x pos
     this.xpos = this.img.x;
 
@@ -59,7 +64,12 @@ var Cow = function (options) {
 
     //start moo sound of cow
     if (this.soundsetting) {
-        this.moo = new sound("/assets/moo.mp3")
+        //check is user put their own sound src
+        if (options.soundsrc) {
+            this.moo = new sound(options.soundsrc);
+        } else {
+            this.moo = new sound("/assets/moo.mp3");
+        }
         this.moo.play();
     }
 
